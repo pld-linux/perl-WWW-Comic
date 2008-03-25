@@ -7,7 +7,7 @@
 %define	pdir	WWW
 %define	pnam	Comic
 Summary:	WWW::Comic - Retrieve comic strip images
-#Summary(pl.UTF-8):	
+Summary(pl.UTF-8):	WWW::Comic - pobieranie komiksów
 Name:		perl-WWW-Comic
 Version:	1.06
 Release:	1
@@ -19,12 +19,12 @@ URL:		http://search.cpan.org/dist/WWW-Comic/
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 %if %{with autodeps} || %{with tests}
-BuildRequires:	perl(WWW::Dilbert) >= 1.18
-BuildRequires:	perl(WWW::VenusEnvy) >= 1.06
-BuildRequires:	perl-libwww
 BuildRequires:	perl-Module-Pluggable >= 2.96
 BuildRequires:	perl-Test-Pod
 BuildRequires:	perl-Test-Pod-Coverage
+BuildRequires:	perl-WWW-Dilbert >= 1.18
+BuildRequires:	perl-WWW-VenusEnvy >= 1.06
+BuildRequires:	perl-libwww
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -35,8 +35,10 @@ websites and return a binary blob of the image, or write it to
 disk. Multiple comic strips can be supported through subclassed
 plugin modules.
 
-# %description -l pl.UTF-8
-# TODO
+%description -l pl.UTF-8
+Ten moduł ściąga komiksy z różnych serwisów i zwraca ściągnięte
+obrazki w postaci binarnej lub zapisuje na dysk. Poprzez wtyczki
+może obsłużyć wiele różnych komiksów.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
